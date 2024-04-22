@@ -1,6 +1,6 @@
 {
   "name": "@rfirmansyh/vuesax",
-  "version": "4.0.1-alpha.26",
+  "version": "4.0.1-alpha.28",
   "description": "Framework components for vuejs",
   "main": "dist/vuesax.js",
   "scripts": {
@@ -70,6 +70,6 @@
     "webpackbar": "^4.0.0"
   },
   "dependencies": {
-    "vue-router": "^3.3.4"
+    "vue-router": "3.6.5"
   }
 }
