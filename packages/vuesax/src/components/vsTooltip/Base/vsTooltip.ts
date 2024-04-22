@@ -40,6 +40,10 @@ export default class VsTooltip extends VsComponent {
 
   insertTooltip() {
     const tooltip = this.$refs.tooltip as HTMLElement
+    if (!tooltip) {
+      return
+    }
+    
     insertBody(tooltip, document.body)
 
     let position = 'top'
