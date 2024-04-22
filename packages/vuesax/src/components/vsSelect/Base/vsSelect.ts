@@ -30,6 +30,8 @@ export default class VsSelect extends VsComponent {
 
   @Prop({ type: String, default: null }) state!: string
 
+  @Prop({ type: String, default: null }) customClass!: string
+
   @Prop({ type: Boolean, default: false }) block!: boolean
 
   renderSelect: boolean = false
@@ -447,7 +449,7 @@ export default class VsSelect extends VsComponent {
       { [`vs-component--danger`] : !!this.danger },
       { [`vs-component--warn`] : !!this.warn },
       { [`vs-component--success`] : !!this.success },
-      { [`vs-component--dark`] : !!this.dark },
+      { [`vs-component--dark`] : !!this.dark }
     ],
       on: {
         mouseleave: () => {
@@ -645,6 +647,7 @@ export default class VsSelect extends VsComponent {
       { [`vs-component--warn`] : !!this.warn },
       { [`vs-component--success`] : !!this.success },
       { [`vs-component--dark`] : !!this.dark },
+      { [this.customClass]: !!this.customClass }
     ]
     }, [
       selectContent,
