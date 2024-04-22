@@ -51,7 +51,11 @@ export default class VsDialog extends VsComponent {
     this.addEsc()
     this.$nextTick(() => {
       const dialog = this.$refs['dialog-content'] as HTMLElement
-      insertBody(dialog, document.querySelector('#app'))
+      if (!dialog) {
+        return
+      }
+
+      insertBody(dialog, document.body)
     })
   }
 
