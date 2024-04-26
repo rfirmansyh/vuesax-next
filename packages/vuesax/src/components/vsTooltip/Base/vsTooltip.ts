@@ -38,6 +38,8 @@ export default class VsTooltip extends VsComponent {
 
   @Prop({ default: null, type: String }) delay: any
 
+  @Prop({ type: String, default: null }) customClass: string
+
   insertTooltip() {
     const tooltip = this.$refs.tooltip as HTMLElement
     insertBody(tooltip, document.body)
@@ -166,6 +168,7 @@ export default class VsTooltip extends VsComponent {
         { [`vs-component--warn`] : !!this.warn },
         { [`vs-component--success`] : !!this.success },
         { [`vs-component--dark`] : !!this.dark },
+        { [this.customClass]: !!this.customClass }
       ],
       on: {
         mouseenter: () => {
