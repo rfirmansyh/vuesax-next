@@ -30,9 +30,9 @@ export default class VsSelect extends VsComponent {
 
   @Prop({ type: String, default: null }) state!: string
 
-  @Prop({ type: String, default: null }) menuClass!: string
-
   @Prop({ type: Boolean, default: false }) block!: boolean
+  
+  @Prop({ type: String, default: null }) optionsClass: string
 
   renderSelect: boolean = false
 
@@ -436,6 +436,7 @@ export default class VsSelect extends VsComponent {
         name: 'vs-select'
       },
     }, [ this.activeOptions && h('div', {
+      // TODO
       staticClass: 'vs-select__options',
       ref: 'options',
       style: {
@@ -449,7 +450,8 @@ export default class VsSelect extends VsComponent {
       { [`vs-component--danger`] : !!this.danger },
       { [`vs-component--warn`] : !!this.warn },
       { [`vs-component--success`] : !!this.success },
-      { [`vs-component--dark`] : !!this.dark }
+      { [`vs-component--dark`] : !!this.dark },
+      { [this.optionsClass]: !!this.optionsClass }
     ],
       on: {
         mouseleave: () => {
@@ -647,7 +649,6 @@ export default class VsSelect extends VsComponent {
       { [`vs-component--warn`] : !!this.warn },
       { [`vs-component--success`] : !!this.success },
       { [`vs-component--dark`] : !!this.dark },
-      { [this.menuClass]: !!this.menuClass }
     ]
     }, [
       selectContent,
