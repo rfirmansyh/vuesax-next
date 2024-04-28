@@ -40,13 +40,20 @@ export default class VsTooltip extends VsComponent {
 
   @Prop({ type: String, default: null }) tooltipClass: string
 
+  @Prop({ type: String, default: null }) boundary: string
+
   insertTooltip() {
     const tooltip = this.$refs.tooltip as HTMLElement
     if (!tooltip) {
       return
     }
     
-    insertBody(tooltip, document.body)
+    insertBody(
+      tooltip, 
+      this.boundary 
+        ? document.querySelector(this.boundary) 
+        : document.body
+    )
 
     let position = 'top'
     if (this.bottom) {
