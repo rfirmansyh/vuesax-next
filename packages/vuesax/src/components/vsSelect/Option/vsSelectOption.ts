@@ -4,7 +4,7 @@ import VsComponent from '../../../mixins/component'
 import '../../vsCheckbox/Base/style.sass'
 import vsCheckbox from '../../vsCheckbox/Base/vsCheckbox'
 
-@Component
+@Component({ inheritAttrs: true })
 export default class VsSelectOption extends VsComponent {
   @Prop({}) value!: any
 
@@ -85,7 +85,6 @@ export default class VsSelectOption extends VsComponent {
       on: {
         ...this.$listeners,
         mousedown: () => {
-          console.log(this.value);
           (this.$parent as any).clickOption(this.value, this.label)
         },
         blur: () => {

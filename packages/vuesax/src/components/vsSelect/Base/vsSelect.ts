@@ -5,7 +5,7 @@ import VsIconsClose from '../../../icons/close'
 import VsComponent from '../../../mixins/component'
 import { insertBody, setCords } from '../../../util/index'
 
-@Component
+@Component({ inheritAttrs: true })
 export default class VsSelect extends VsComponent {
   // @Provide()
   // select: any = this
@@ -78,6 +78,7 @@ export default class VsSelect extends VsComponent {
       }
       this.$emit('input', oldVal)
     } else {
+      console.log('EMIT: ', value, label);
       this.$emit('input', value)
       this.valueLabel = label
     }
