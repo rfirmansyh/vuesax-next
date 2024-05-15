@@ -2,7 +2,7 @@ import Vue from 'vue'
 import { Component, Prop, Watch } from 'vue-property-decorator'
 import { getColor } from '../util/index'
 
-@Component({ inheritAttrs: true })
+@Component
 export default class VsComponent extends Vue {
   static install: (vue: any) => void
 

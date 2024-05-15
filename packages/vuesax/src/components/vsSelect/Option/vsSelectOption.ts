@@ -4,7 +4,7 @@ import VsComponent from '../../../mixins/component'
 import '../../vsCheckbox/Base/style.sass'
 import vsCheckbox from '../../vsCheckbox/Base/vsCheckbox'
 
-@Component({ inheritAttrs: true })
+@Component
 export default class VsSelectOption extends VsComponent {
   @Prop({}) value!: any
 
