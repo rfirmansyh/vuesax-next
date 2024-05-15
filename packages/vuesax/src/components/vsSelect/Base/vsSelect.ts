@@ -5,7 +5,7 @@ import VsIconsClose from '../../../icons/close'
 import VsComponent from '../../../mixins/component'
 import { insertBody, setCords } from '../../../util/index'
 
-@Component({ inheritAttrs: true })
+@Component({ inheritAttrs: false })
 export default class VsSelect extends VsComponent {
   // @Provide()
   // select: any = this
@@ -78,7 +78,6 @@ export default class VsSelect extends VsComponent {
       }
       this.$emit('input', oldVal)
     } else {
-      console.log('EMIT: ', value, label);
       this.$emit('input', value)
       this.valueLabel = label
     }
@@ -89,7 +88,9 @@ export default class VsSelect extends VsComponent {
       }
     }, 10)
     if (!this.multiple) {
-      this.handleBlur()
+      setTimeout(() => {
+        this.handleBlur()
+      }, 100)
     }
   }
 
@@ -304,7 +305,7 @@ export default class VsSelect extends VsComponent {
       this.handleBlur()
       setTimeout(() => {
         (this.$refs.input as HTMLElement).blur()
-      }, 100);
+      }, 500);
     }
   }
 
