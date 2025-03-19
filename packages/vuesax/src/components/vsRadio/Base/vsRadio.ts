@@ -1,3 +1,4 @@
+import * as _ from 'lodash'
 import { VNode } from 'vue'
 import { Component, Prop } from 'vue-property-decorator'
 import VsComponent from '../../../mixins/component'
@@ -24,7 +25,13 @@ export default class VsRadio extends VsComponent {
 
   @Prop({ type: Boolean, default: false }) labelBefore: boolean
 
+  @Prop({ type: Boolean, default: false }) isCheckedObject: boolean
+
   get isChecked() {
+    if (this.isCheckedObject) {
+      return _.isEqual(this.value, this.val)
+    }
+    
     return this.value == this.val
   }
 
