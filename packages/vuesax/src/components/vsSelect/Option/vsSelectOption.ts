@@ -37,8 +37,22 @@ export default class VsSelectOption extends VsComponent {
   }
 
   get isActive() {
-    return typeof this.getParent().value == 'number' ?
-    this.getParent().value == this.value : this.getParent().value.indexOf(this.value) !== -1
+    const parentValue = this.getParent().value;
+    const currentValue = this.value;
+
+    if (parentValue === undefined || parentValue === null) {
+      return false;
+    }
+
+    if (typeof parentValue === 'number') {
+      return parentValue === currentValue;
+    }
+    
+    if (Array.isArray(parentValue)) {
+      return parentValue.indexOf(currentValue) !== -1;
+    }
+
+    return parentValue === currentValue;
   }
 
   get isHover() {
