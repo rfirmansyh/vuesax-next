@@ -109,7 +109,14 @@ export default class VsSelect extends VsComponent {
     const options = this.childOptions
 
     const filterOptions = options.filter((option: any): boolean => {
-      return typeof this.value == 'number' ? this.value == option.value : this.value.indexOf(option.value) !== -1
+      if (typeof this.value == 'number') {
+        return this.value == option.value
+      } else if (Array.isArray(this.value)) {
+        return this.value.indexOf(option.value) !== -1
+      } else if (typeof this.value === 'string') {
+        return this.value === option.value;
+      }
+      return false
     })
 
     const label: any[] = []
